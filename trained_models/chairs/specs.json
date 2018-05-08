@@ -1,0 +1,1 @@
+{"cont_capacity": [0.0, 30.0, 100000, 300.0], "disc_capacity": [0.0, 5.0, 100000, 300.0], "record_loss_every": 50, "batch_size": 64, "latent_spec": {"disc": [2, 2, 2], "cont": 32}, "epochs": [100, 101], "experiment_name": "1", "lr": [0.0001], "print_loss_every": 50, "dataset": "chairs"}
