@@ -24,14 +24,7 @@ def load(path):
 
     # Unpack specs
     dataset = specs["dataset"]
-    batch_size = specs["batch_size"]
-    lr_list = specs["lr"]
-    epochs_list = specs["epochs"]
     latent_spec = specs["latent_spec"]
-    record_loss_every = specs["record_loss_every"]
-    print_loss_every = specs["print_loss_every"]
-    cont_capacity = specs["cont_capacity"]
-    disc_capacity = specs["disc_capacity"]
 
     # Get image size
     if dataset == 'mnist' or dataset == 'fashion_mnist':

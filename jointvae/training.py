@@ -233,11 +233,10 @@ class Trainer():
         total_loss = recon_loss + cont_capacity_loss + disc_capacity_loss
 
         # Record losses
-        if self.model.training:
-            if self.num_steps % self.record_loss_every == 1:
-                self.losses['recon_loss'].append(recon_loss.data[0])
-                self.losses['kl_loss'].append(kl_loss.data[0])
-                self.losses['loss'].append(total_loss.data[0])
+        if self.model.training and self.num_steps % self.record_loss_every == 1:
+            self.losses['recon_loss'].append(recon_loss.data[0])
+            self.losses['kl_loss'].append(kl_loss.data[0])
+            self.losses['loss'].append(total_loss.data[0])
 
         # To avoid large losses normalise by number of pixels
         return total_loss / self.model.num_pixels
@@ -264,11 +263,10 @@ class Trainer():
         kl_loss = torch.sum(kl_means)
 
         # Record losses
-        if self.model.training:
-            if self.num_steps % self.record_loss_every == 1:
-                self.losses['kl_loss_cont'].append(kl_loss.data[0])
-                for i in range(self.model.latent_spec['cont']):
-                    self.losses['kl_loss_cont_' + str(i)].append(kl_means.data[i])
+        if self.model.training and self.num_steps % self.record_loss_every == 1:
+            self.losses['kl_loss_cont'].append(kl_loss.data[0])
+            for i in range(self.model.latent_spec['cont']):
+                self.losses['kl_loss_cont_' + str(i)].append(kl_means.data[i])
 
         return kl_loss
 
@@ -293,11 +291,10 @@ class Trainer():
         kl_loss = torch.sum(torch.cat(kl_losses))
 
         # Record losses
-        if self.model.training:
-            if self.num_steps % self.record_loss_every == 1:
-                self.losses['kl_loss_disc'].append(kl_loss.data[0])
-                for i in range(len(alphas)):
-                    self.losses['kl_loss_disc_' + str(i)].append(kl_losses[i].data[0])
+        if self.model.training and self.num_steps % self.record_loss_every == 1:
+            self.losses['kl_loss_disc'].append(kl_loss.data[0])
+            for i in range(len(alphas)):
+                self.losses['kl_loss_disc_' + str(i)].append(kl_losses[i].data[0])
 
         return kl_loss
 

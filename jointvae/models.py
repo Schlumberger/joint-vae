@@ -65,6 +65,7 @@ class VAE(nn.Module):
                 nn.ReLU()
             ]
         elif self.img_size[1:] == (32, 32):
+            # (32, 32) images are supported but do not require an extra layer
             pass
         else:
             raise RuntimeError("{} sized images not supported. Only (None, 32, 32) and (None, 64, 64) supported. Build your own architecture or reshape images!".format(img_size))
