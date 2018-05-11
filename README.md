@@ -21,7 +21,7 @@ This repo contains an implementation of JointVAE, a framework for jointly disent
 
 ## Usage
 
-The `train_model.ipynb` notebook contains code for training a Joint-VAE model.
+The `train_model.ipynb` notebook contains code for training a JointVAE model.
 
 The `load_model.ipynb` notebook contains code for loading a trained model.
 
