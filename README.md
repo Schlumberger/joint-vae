@@ -8,16 +8,15 @@ This repo contains an implementation of JointVAE, a framework for jointly disent
 ## Examples
 
 #### MNIST
-
-<img src="https://github.com/Schlumberger/ml-sandbox/raw/master/joint-vae-open-source/imgs/mnist_disentangled.gif" width="400">
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/mnist_disentangled.gif" width="400">
 
 #### CelebA
 
-<img src="https://github.com/Schlumberger/ml-sandbox/raw/master/joint-vae-open-source/imgs/celeba_disentangled.gif" width="400">
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/celeba_disentangled.gif" width="400">
 
 #### FashionMNIST
 
-<img src="https://github.com/Schlumberger/ml-sandbox/raw/master/joint-vae-open-source/imgs/fashion_disentangled.gif" width="400">
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/fashion_disentangled.gif" width="400">
 
 ## Usage
 
@@ -74,35 +73,35 @@ All Chairs images were center cropped and resized to 64 by 64. Data can be found
 
 ### Image editing
 
-<img src="https://github.com/Schlumberger/ml-sandbox/raw/master/joint-vae-open-source/imgs/face-manipulation.jpg" width="600">
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/face-manipulation.jpg" width="600">
 
 ### Inferring unlabelled quantities
 
-<img src="https://github.com/Schlumberger/ml-sandbox/raw/master/joint-vae-open-source/imgs/inferred-rotation.jpg" width="600">
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/inferred-rotation.jpg" width="600">
 
 ## More examples
 
-<img src="https://github.com/Schlumberger/ml-sandbox/raw/master/joint-vae-open-source/imgs/mnist_angle.png" width="300">
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/mnist_angle.png" width="300">
 
-<img src="https://github.com/Schlumberger/ml-sandbox/raw/master/joint-vae-open-source/imgs/mnist_stroke_thickness.png" width="300">
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/mnist_stroke_thickness.png" width="300">
 
-<img src="https://github.com/Schlumberger/ml-sandbox/raw/master/joint-vae-open-source/imgs/mnist_width.png" width="300">
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/mnist_width.png" width="300">
 
-<img src="https://github.com/Schlumberger/ml-sandbox/raw/master/joint-vae-open-source/imgs/mnist_digit_type_thickness.png" width="300">
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/mnist_digit_type_thickness.png" width="300">
 
-<img src="https://github.com/Schlumberger/ml-sandbox/raw/master/joint-vae-open-source/imgs/celeba_azimuth_large.png" width="300">
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/celeba_azimuth_large.png" width="300">
 
-<img src="https://github.com/Schlumberger/ml-sandbox/raw/master/joint-vae-open-source/imgs/celeba_background_large.png" width="300">
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/celeba_background_large.png" width="300">
 
-<img src="https://github.com/Schlumberger/ml-sandbox/raw/master/joint-vae-open-source/imgs/celeba_age_large.png" width="300">
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/celeba_age_large.png" width="300">
 
-<img src="https://github.com/Schlumberger/ml-sandbox/raw/master/joint-vae-open-source/imgs/chair_azimuth.png" width="300">
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/chair_azimuth.png" width="300">
 
-<img src="https://github.com/Schlumberger/ml-sandbox/raw/master/joint-vae-open-source/imgs/chair_size.png" width="300">
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/chair_size.png" width="300">
 
-<img src="https://github.com/Schlumberger/ml-sandbox/raw/master/joint-vae-open-source/imgs/chairs_disentangled2.gif" width="200">
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/chairs_disentangled2.gif" width="200">
 
-<img src="https://github.com/Schlumberger/ml-sandbox/raw/master/joint-vae-open-source/imgs/fashion_traversals.png" width="300">
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/fashion_traversals.png" width="300">
 
 ## License
 
