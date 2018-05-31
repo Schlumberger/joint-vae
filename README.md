@@ -18,6 +18,10 @@ This repo contains an implementation of JointVAE, a framework for jointly disent
 
 <img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/fashion_disentangled.gif" width="400">
 
+#### Discrete and continuous factors on MNIST
+
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/discrete_continuous_factors.png" width="400">
+
 ## Usage
 
 The `train_model.ipynb` notebook contains code for training a JointVAE model.
