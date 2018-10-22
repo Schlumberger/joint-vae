@@ -1,7 +1,6 @@
 import imageio
 import numpy as np
 import torch
-from torch.autograd import Variable
 from torch.nn import functional as F
 from torchvision.utils import make_grid
 
@@ -156,7 +155,6 @@ class Trainer():
             A batch of data. Shape (N, C, H, W)
         """
         self.num_steps += 1
-        data = Variable(data)
         if self.use_cuda:
             data = data.cuda()
 
@@ -166,7 +164,7 @@ class Trainer():
         loss.backward()
         self.optimizer.step()
 
-        train_loss = loss.data[0]
+        train_loss = loss.item()
         return train_loss
 
     def _loss_function(self, data, recon_data, latent_dist):
@@ -175,10 +173,10 @@ class Trainer():
 
         Parameters
         ----------
-        data : torch.autograd.Variable
+        data : torch.Tensor
             Input data (e.g. batch of images). Should have shape (N, C, H, W)
 
-        recon_data : torch.autograd.Variable
+        recon_data : torch.Tensor
             Reconstructed data. Should have shape (N, C, H, W)
 
         latent_dist : dict
@@ -234,9 +232,9 @@ class Trainer():
 
         # Record losses
         if self.model.training and self.num_steps % self.record_loss_every == 1:
-            self.losses['recon_loss'].append(recon_loss.data[0])
-            self.losses['kl_loss'].append(kl_loss.data[0])
-            self.losses['loss'].append(total_loss.data[0])
+            self.losses['recon_loss'].append(recon_loss.item())
+            self.losses['kl_loss'].append(kl_loss.item())
+            self.losses['loss'].append(total_loss.item())
 
         # To avoid large losses normalise by number of pixels
         return total_loss / self.model.num_pixels
@@ -248,11 +246,11 @@ class Trainer():
 
         Parameters
         ----------
-        mean : torch.autograd.Variable
+        mean : torch.Tensor
             Mean of the normal distribution. Shape (N, D) where D is dimension
             of distribution.
 
-        logvar : torch.autograd.Variable
+        logvar : torch.Tensor
             Diagonal log variance of the normal distribution. Shape (N, D)
         """
         # Calculate KL divergence
@@ -264,9 +262,9 @@ class Trainer():
 
         # Record losses
         if self.model.training and self.num_steps % self.record_loss_every == 1:
-            self.losses['kl_loss_cont'].append(kl_loss.data[0])
+            self.losses['kl_loss_cont'].append(kl_loss.item())
             for i in range(self.model.latent_spec['cont']):
-                self.losses['kl_loss_cont_' + str(i)].append(kl_means.data[i])
+                self.losses['kl_loss_cont_' + str(i)].append(kl_means[i].item())
 
         return kl_loss
 
@@ -281,7 +279,7 @@ class Trainer():
             List of the alpha parameters of a categorical (or gumbel-softmax)
             distribution. For example, if the categorical atent distribution of
             the model has dimensions [2, 5, 10] then alphas will contain 3
-            torch.autograd.Variable instances with the parameters for each of
+            torch.Tensor instances with the parameters for each of
             the distributions. Each of these will have shape (N, D).
         """
         # Calculate kl losses for each discrete latent
@@ -292,9 +290,9 @@ class Trainer():
 
         # Record losses
         if self.model.training and self.num_steps % self.record_loss_every == 1:
-            self.losses['kl_loss_disc'].append(kl_loss.data[0])
+            self.losses['kl_loss_disc'].append(kl_loss.item())
             for i in range(len(alphas)):
-                self.losses['kl_loss_disc_' + str(i)].append(kl_losses[i].data[0])
+                self.losses['kl_loss_disc_' + str(i)].append(kl_losses[i].item())
 
         return kl_loss
 
@@ -305,12 +303,12 @@ class Trainer():
 
         Parameters
         ----------
-        alpha : torch.autograd.Variable
+        alpha : torch.Tensor
             Parameters of the categorical or gumbel-softmax distribution.
             Shape (N, D)
         """
         disc_dim = int(alpha.size()[-1])
-        log_dim = Variable(torch.Tensor([np.log(disc_dim)]))
+        log_dim = torch.Tensor([np.log(disc_dim)])
         if self.use_cuda:
             log_dim = log_dim.cuda()
         # Calculate negative entropy of each row

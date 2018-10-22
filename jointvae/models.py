@@ -1,6 +1,5 @@
 import torch
 from torch import nn, optim
-from torch.autograd import Variable
 from torch.nn import functional as F
 
 EPS = 1e-12
@@ -135,7 +134,7 @@ class VAE(nn.Module):
 
         Parameters
         ----------
-        x : torch.autograd.Variable
+        x : torch.Tensor
             Batch of data, shape (N, C, H, W)
         """
         batch_size = x.size()[0]
@@ -165,7 +164,7 @@ class VAE(nn.Module):
         ----------
         latent_dist : dict
             Dict with keys 'cont' or 'disc' or both, containing the parameters
-            of the latent distributions as torch.autograd.Variable instances.
+            of the latent distributions as torch.Tensor instances.
         """
         latent_sample = []
 
@@ -188,16 +187,16 @@ class VAE(nn.Module):
 
         Parameters
         ----------
-        mean : torch.autograd.Variable
+        mean : torch.Tensor
             Mean of the normal distribution. Shape (N, D) where D is dimension
             of distribution.
 
-        logvar : torch.autograd.Variable
+        logvar : torch.Tensor
             Diagonal log variance of the normal distribution. Shape (N, D)
         """
         if self.training:
             std = torch.exp(0.5 * logvar)
-            eps = Variable(torch.zeros(std.size()).normal_())
+            eps = torch.zeros(std.size()).normal_()
             if self.use_cuda:
                 eps = eps.cuda()
             return mean + std * eps
@@ -212,12 +211,12 @@ class VAE(nn.Module):
 
         Parameters
         ----------
-        alpha : torch.autograd.Variable
+        alpha : torch.Tensor
             Parameters of the gumbel-softmax distribution. Shape (N, D)
         """
         if self.training:
             # Sample from gumbel distribution
-            unif = Variable(torch.rand(alpha.size()))
+            unif = torch.rand(alpha.size())
             if self.use_cuda:
                 unif = unif.cuda()
             gumbel = -torch.log(-torch.log(unif + EPS) + EPS)
@@ -233,7 +232,6 @@ class VAE(nn.Module):
             # max_alpha. Note the view is because scatter_ only accepts 2D
             # tensors.
             one_hot_samples.scatter_(1, max_alpha.view(-1, 1).data.cpu(), 1)
-            one_hot_samples = Variable(one_hot_samples)
             if self.use_cuda:
                 one_hot_samples = one_hot_samples.cuda()
             return one_hot_samples
@@ -244,7 +242,7 @@ class VAE(nn.Module):
 
         Parameters
         ----------
-        latent_sample : torch.autograd.Variable
+        latent_sample : torch.Tensor
             Sample from latent distribution. Shape (N, L) where L is dimension
             of latent distribution.
         """
@@ -257,7 +255,7 @@ class VAE(nn.Module):
 
         Parameters
         ----------
-        x : torch.autograd.Variable
+        x : torch.Tensor
             Batch of data. Shape (N, C, H, W)
         """
         latent_dist = self.encode(x)

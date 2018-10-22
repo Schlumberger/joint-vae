@@ -1,0 +1,1 @@
+{"cont_capacity": [0.0, 40.0, 300000, 150.0], "disc_capacity": [0.0, 1.1, 300000, 150.0], "record_loss_every": 1000, "batch_size": 64, "latent_spec": {"disc": [3], "cont": 6}, "epochs": [29, 30, 31], "experiment_name": "1", "lr": [0.0005], "print_loss_every": 1000, "dataset": "dsprites"}

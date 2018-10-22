@@ -1,6 +1,6 @@
 # Learning Disentangled Joint Continuous and Discrete Representations
 
-Pytorch implementation of [Learning Disentangled Joint Continuous and Discrete Representations](https://arxiv.org/abs/1804.00104) (2018).
+Pytorch implementation of [Learning Disentangled Joint Continuous and Discrete Representations](https://arxiv.org/abs/1804.00104) (NIPS 2018).
 
 This repo contains an implementation of JointVAE, a framework for jointly disentangling continuous and discrete factors of variation in data in an unsupervised manner.
 
@@ -18,9 +18,17 @@ This repo contains an implementation of JointVAE, a framework for jointly disent
 
 <img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/fashion_disentangled.gif" width="400">
 
+#### dSprites
+
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/dsprites_sweep.gif" width="400">
+
 #### Discrete and continuous factors on MNIST
 
 <img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/discrete_continuous_factors.png" width="400">
+
+#### dSprites comparisons
+
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/dsprites_comparison.png" width="400">
 
 ## Usage
 
@@ -82,6 +90,19 @@ All Chairs images were center cropped and resized to 64 by 64. Data can be found
 ### Inferring unlabelled quantities
 
 <img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/inferred-rotation.jpg" width="600">
+
+## Citing
+
+If you find this work useful in your research, please cite using:
+
+```
+@article{dupont2018joint,
+  title={Learning Disentangled Joint Continuous and Discrete Representations},
+  author={Dupont, Emilien},
+  journal={arXiv preprint arXiv:1804.00104v3},
+  year={2018}
+}
+```
 
 ## More examples
 
