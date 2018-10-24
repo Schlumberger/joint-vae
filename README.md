@@ -20,7 +20,7 @@ This repo contains an implementation of JointVAE, a framework for jointly disent
 
 #### dSprites
 
-<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/dsprites_sweep.gif" width="400">
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/dsprites_sweeps.gif" width="400">
 
 #### Discrete and continuous factors on MNIST
 
@@ -28,7 +28,7 @@ This repo contains an implementation of JointVAE, a framework for jointly disent
 
 #### dSprites comparisons
 
-<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/dsprites_comparison.png" width="400">
+<img src="https://github.com/Schlumberger/joint-vae/raw/master/imgs/dsprites-comparison.png" width="400">
 
 ## Usage
 
