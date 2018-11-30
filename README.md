@@ -96,10 +96,11 @@ All Chairs images were center cropped and resized to 64 by 64. Data can be found
 If you find this work useful in your research, please cite using:
 
 ```
-@article{dupont2018joint,
-  title={Learning Disentangled Joint Continuous and Discrete Representations},
+@inproceedings{dupont2018learning,
+  title={Learning disentangled joint continuous and discrete representations},
   author={Dupont, Emilien},
-  journal={arXiv preprint arXiv:1804.00104v3},
+  booktitle={Advances in Neural Information Processing Systems},
+  pages={707--717},
   year={2018}
 }
 ```
