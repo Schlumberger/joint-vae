@@ -1,3 +1,5 @@
+from __future__ import division
+
 import numpy as np
 import torch
 from latent_traversals import LatentTraverser
@@ -46,7 +48,7 @@ class Visualizer():
 
         # Upper half of plot will contain data, bottom half will contain
         # reconstructions
-        num_images = size[0] * size[1] / 2
+        num_images = size[0] * size[1] // 2
         originals = input_data[:num_images].cpu()
         reconstructions = recon_data.view(-1, *self.model.img_size)[:num_images].cpu()
         # If there are fewer examples given than spaces available in grid,
